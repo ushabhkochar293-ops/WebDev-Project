@@ -1,0 +1,966 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Recommendations</title>
+
+    <style>
+
+        body {
+            background-color: black;
+            color: white;
+            font-family: Arial, sans-serif;
+
+            margin: 0;
+            padding: 30px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        h1 {
+            color: red;
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+        }
+
+        h2 {
+            color: red;
+            font-size: 2rem;
+
+            width: 90%;
+            max-width: 1000px;
+
+            border-bottom: 2px solid red;
+
+            padding-bottom: 10px;
+            margin-top: 50px;
+        }
+
+        .intro {
+            width: 80%;
+            max-width: 800px;
+
+            background-color: #111;
+
+            border: 2px solid red;
+            border-radius: 10px;
+
+            padding: 25px;
+            margin-bottom: 30px;
+
+            box-shadow: 8px 8px 0px darkred;
+        }
+
+        .intro p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .cards {
+            width: 90%;
+            max-width: 1000px;
+
+            display: flex;
+            flex-direction: column;
+
+            gap: 30px;
+        }
+
+        .card {
+            background-color: #111;
+
+            border: 2px solid red;
+            border-radius: 10px;
+
+            padding: 20px;
+
+            display: flex;
+            gap: 25px;
+
+            box-shadow: 8px 8px 0px darkred;
+
+            transition: 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                10px 10px 0px red;
+        }
+
+        .pic {
+            width: 250px;
+            height: 350px;
+
+            object-fit: cover;
+
+            border-radius: 10px;
+        }
+
+        .info {
+            flex: 1;
+        }
+
+        .info h3 {
+            color: red;
+            font-size: 1.5rem;
+        }
+
+        .info p {
+            font-size: 1.05rem;
+            line-height: 1.6;
+        }
+
+        .watch {
+            border-top: 1px solid red;
+
+            margin-top: 20px;
+            padding-top: 15px;
+        }
+
+        .watch h4 {
+            color: red;
+        }
+
+        .trailer {
+            width: 100%;
+            height: 250px;
+
+            border: none;
+            border-radius: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+
+            font-size: 1rem;
+
+            background-color: red;
+            color: white;
+
+            border: none;
+            border-radius: 5px;
+
+            cursor: pointer;
+
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: darkred;
+
+            box-shadow:
+                0px 0px 10px red,
+                0px 0px 20px red;
+
+            transform: translateY(-3px);
+        }
+
+        .music {
+            width: 90%;
+            max-width: 1000px;
+
+            background-color: #111;
+
+            border: 2px solid red;
+            border-radius: 10px;
+
+            padding: 20px;
+            margin-bottom: 20px;
+
+            box-shadow: 8px 8px 0px darkred;
+
+            display: flex;
+            gap: 25px;
+            align-items: center;
+
+            transition: 0.3s;
+        }
+
+        .music:hover {
+            transform: translateY(-5px);
+
+            box-shadow:
+                10px 10px 0px red;
+        }
+
+        .musicpic {
+            width: 150px;
+            height: 150px;
+
+            object-fit: cover;
+
+            border-radius: 10px;
+        }
+
+        .music h3 {
+            color: red;
+        }
+
+        .bottom {
+            margin-top: 40px;
+            margin-bottom: 20px;
+        }
+
+        .bottom a {
+            text-decoration: none;
+            margin: 10px;
+        }
+                @media (max-width: 900px) {
+
+            body {
+                padding: 25px;
+            }
+
+            h1 {
+                font-size: 2.1rem;
+            }
+
+            h2 {
+                font-size: 1.7rem;
+            }
+
+            .intro {
+                width: 85%;
+                padding: 20px;
+            }
+
+            .cards {
+                width: 90%;
+            }
+
+            .card {
+                padding: 18px;
+                gap: 20px;
+            }
+
+            .pic {
+                width: 200px;
+                height: 300px;
+            }
+
+            .info h3 {
+                font-size: 1.3rem;
+            }
+
+            .info p {
+                font-size: 1rem;
+            }
+
+            .music {
+                width: 90%;
+            }
+
+            .musicpic {
+                width: 120px;
+                height: 120px;
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 1.6rem;
+                text-align: center;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+                width: 95%;
+            }
+
+            .intro {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .intro p {
+                font-size: 0.95rem;
+            }
+
+            .cards {
+                width: 95%;
+            }
+
+            .card {
+                flex-direction: column;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .pic {
+                width: 100%;
+                height: 300px;
+            }
+
+            .info h3 {
+                font-size: 1.2rem;
+            }
+
+            .info p {
+                font-size: 0.95rem;
+            }
+
+            .trailer {
+                height: 200px;
+            }
+
+            .music {
+                width: 95%;
+                padding: 15px;
+                gap: 15px;
+            }
+
+            .musicpic {
+                width: 100px;
+                height: 100px;
+            }
+
+            button {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+
+        }
+
+        @media (max-width: 400px) {
+
+            body {
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.4rem;
+            }
+
+            h2 {
+                font-size: 1.2rem;
+            }
+
+            .intro {
+                width: 92%;
+                padding: 12px;
+            }
+
+            .intro p {
+                font-size: 0.9rem;
+            }
+
+            .card {
+                width: auto;
+                padding: 12px;
+            }
+
+            .pic {
+                height: 250px;
+            }
+
+            .info h3 {
+                font-size: 1.1rem;
+            }
+
+            .info p {
+                font-size: 0.9rem;
+            }
+
+            .trailer {
+                height: 180px;
+            }
+
+            .music {
+                width: 92%;
+                padding: 12px;
+            }
+
+            .musicpic {
+                width: 80px;
+                height: 80px;
+            }
+
+            button {
+                font-size: 0.85rem;
+                padding: 9px 12px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+
+    <h1>MORE ABOUT THIS HUMAN</h1>
+
+
+    <div class="intro">
+
+        <p>
+            This human is an INTJ, making him about as good in social
+            situations as a chicken is at flying.
+        </p>
+
+        <p>
+            As a nerd with no social skills and a social battery that
+            is permanently stuck on power-saving mode, the only things
+            left to know about him are his favourite anime, movies,
+            music, some random psychological and existential questions,
+            and the things that keep him sleep-deprived.
+        </p>
+
+        <p>
+            This has resulted in what he proudly calls raccoon eyes,
+            or what normal humans call dark circles.
+        </p>
+
+        <p>
+            But honestly, the more dramatic the better.
+        </p>
+
+    </div>
+
+
+    <h2>ANIME</h2>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:Redirect/file/Anime_logo_for_OreGairu_season_1.png"
+                class="pic"
+                alt="Oregairu">
+
+            <div class="info">
+
+                <h3>My Teen Romantic Comedy SNAFU</h3>
+
+                <p>
+                   Just peak. A genuinely good rom-com with great humour, but underneath all that, it has a much deeper psychological side about how human trauma, personality, and past experiences affect the way we interact with people.
+
+                 Watching the characters slowly grow and their relationships turn into something genuine is honestly peak.
+
+                   Also, it gives me a perfect excuse to stay socially invisible, overthink everything, and monologue in my head while pretending I look cool.
+
+                </p>
+
+                <div class="watch">
+
+                    <h4>TRAILER</h4>
+
+                    <iframe
+                        class="trailer"
+                        src="https://www.youtube.com/embed/1N3OsqTfHXA"
+                        allowfullscreen>
+                    </iframe>
+
+                    <h4>WHERE TO WATCH</h4>
+
+                    <a href="https://www.crunchyroll.com/">
+                        <button>CRUNCHYROLL →</button>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <img
+                src="https://images.plex.tv/photo?size=large-1280&url=https%3A%2F%2Fimage.tmdb.org%2Ft%2Fp%2Foriginal%2FcjCOKcmOuVYc2ZAQRF5ST6ceYZz.jpg"
+                class="pic"
+                alt="Attack on Titan">
+
+            <div class="info">
+
+                <h3>Attack on Titan</h3>
+
+                <p>
+                    Started as people fighting giant naked humans and somehow
+                    turned into one of the biggest psychological disasters
+                    imaginable.
+                </p>
+
+                <div class="watch">
+
+                    <h4>TRAILER</h4>
+
+                    <iframe
+                        class="trailer"
+                        src="https://www.youtube.com/embed/MGRm4IzK1SQ"
+                        allowfullscreen>
+                    </iframe>
+
+                    <h4>WHERE TO WATCH</h4>
+
+                    <a href="https://www.crunchyroll.com/">
+                        <button>CRUNCHYROLL →</button>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <img
+                src="Screenshot 2026-09-28 174247.png"
+                class="pic"
+                alt="Death Note">
+
+            <div class="info">
+
+                <h3>Death Note</h3>
+
+                <p>
+                    well i am one of the wierdo's who pretend to laugh like light for no reason
+                </p>
+
+                <div class="watch">
+
+                    <h4>TRAILER</h4>
+
+                    <iframe
+                 class="trailer"
+                 src="https://www.youtube.com/embed/NlJZ-YgAt-c"
+                 allowfullscreen>
+                 </iframe>
+                    <h4>WHERE TO WATCH</h4>
+
+                    <a href="https://www.crunchyroll.com/">
+                        <button>CRUNCHYROLL →</button>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <img
+                src="https://res.cloudinary.com/sertina/image/upload/v1479462518/haikyuu_yuyniy.png"
+                class="pic"
+                alt="Haikyuu">
+
+            <div class="info">
+
+                <h3>Haikyu!!</h3>
+
+                <p>
+                    well i don't even know much about volleyball but i like this anime so yeah i think that says alot
+                </p>
+
+                <div class="watch">
+
+                    <h4>TRAILER</h4>
+
+                    <iframe
+                  class="trailer"
+                     src="https://www.youtube.com/embed/R-TqMYs89ZU"
+                   allowfullscreen>
+                 </iframe>
+
+                 <h4>WHERE TO WATCH</h4>
+
+                    <a href="https://www.crunchyroll.com/">
+                        <button>CRUNCHYROLL →</button>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <img
+                src="https://3.bp.blogspot.com/-jM8SbPDO9oo/WkedIJXcl_I/AAAAAAAABNA/HDukMpl8OPgRmhJCmeqQF8JW01G4zY--ACLcBGAs/s1600/Naruto-Shippuuden.jpg"
+                class="pic"
+                alt="Naruto Shippuden">
+
+            <div class="info">
+
+                <h3>Naruto Shippuden</h3>
+
+                <p>
+                    poor obito like i wish he knew that he can buy rin pouch for clean cloth . ok bad pun sorry
+                </p>
+
+                <div class="watch">
+
+                    <h4>TRAILER</h4>
+
+                    <iframe
+                        class="trailer"
+                        src="https://www.youtube.com/embed/-G9BqkgZXRA"
+                        allowfullscreen>
+                    </iframe>
+
+                    <h4>WHERE TO WATCH</h4>
+
+                    <a href="https://www.crunchyroll.com/series/GYQ4MW246/naruto-shippuden">
+                        <button>CRUNCHYROLL →</button>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <h2>MOVIES</h2>
+
+
+    <div class="cards">
+
+
+        <div class="card">
+
+            <img
+                src="https://commons.wikimedia.org/wiki/Special:Redirect/file/The_Batman_2022_film_logo.png"
+                class="pic"
+                alt="The Batman">
+
+            <div class="info">
+
+                <h3>The Batman</h3>
+
+                <p>
+                   if you didnt get this i think you should learn how to read the room or page i guess
+                </p>
+
+                <div class="watch">
+
+                    <h4>TRAILER</h4>
+
+                    <iframe
+                        class="trailer"
+                        src="https://www.youtube.com/embed/mqqft2x_Aa4"
+                        allowfullscreen>
+                    </iframe>
+
+                    <h4>WHERE TO WATCH</h4>
+
+                    <a href="https://www.max.com/">
+                        <button>MAX →</button>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <img
+                src="https://image.tmdb.org/t/p/w500/qJ2tW6WMUDux911r6m7haRef0WH.jpg"
+                class="pic"
+                alt="The Dark Knight">
+
+            <div class="info">
+
+                <h3>The Dark Knight</h3>
+
+                <p>
+                   people say The Dark Knight is better, but you think The Batman is the better Batman movie, while The Dark Knight is the better superhero movie.
+                </p>
+
+                <div class="watch">
+
+                    <h4>TRAILER</h4>
+
+                    <iframe
+                        class="trailer"
+                        src="https://www.youtube.com/embed/EXeTwQWrcwY"
+                        allowfullscreen>
+                    </iframe>
+
+                    <h4>WHERE TO WATCH</h4>
+
+                    <a href="https://www.primevideo.com/">
+                        <button>PRIME VIDEO →</button>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+            <img
+                src="https://cf-img-a-in.tosshub.com/sites/visualstory/wp/2024/06/cropped-ZNMD.jpg?size=900%3A1200"
+                class="pic"
+                alt="Zindagi Na Milegi Dobara">
+
+            <div class="info">
+
+                <h3>Zindagi Na Milegi Dobara</h3>
+
+                <p>
+                   i watched it like a million times with my parents at this point its a comfort movie
+                </p>
+
+                <div class="watch">
+
+                    <h4>TRAILER</h4>
+                  <iframe
+                class="trailer"
+               width="100%"
+                 height="250"
+                   src="https://www.youtube.com/embed/uY_4TY670jI"
+                  frameborder="0"
+                    allowfullscreen>
+                </iframe>>
+
+                    <h4>WHERE TO WATCH</h4>
+
+                    <a href="https://www.netflix.com/in/">
+                        <button>NETFLIX →</button>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="card">
+
+    <img
+        src="Screenshot 2026-09-28 173625.png"
+        class="pic"
+        alt="Spider-Man Brand New Day">
+
+    <div class="info">
+
+        <h3>Spider-Man: Brand New Day</h3>
+
+        <p>
+            This movie hits hard. The emotional beats actually got me a little emotional, which is rare considering I'm an INTJ and apparently emotions are an unsupported feature.
+
+          Yeah, this one hit different.
+
+        </p>
+
+        <div class="watch">
+
+            <h4>TRAILER</h4>
+
+            <iframe
+              class="trailer"
+             width="100%"
+             height="250"
+             src="https://www.youtube.com/embed/daXaTug8rL4"
+             frameborder="0"
+              allowfullscreen>
+            </iframe>
+            <h4>WHERE TO WATCH</h4>
+
+            <a href="https://www.sonypictures.com/movies/spidermanbrandnewday">
+                <button>SONY PICTURES →</button>
+            </a>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+        <div class="card">
+
+            <img
+                src="https://wallpapercrafter.com/th8002/736524-Star-Wars-Star-Wars-Episode-III-Revenge-of-the-Sith.jpg"
+                class="pic"
+                alt="Revenge of the Sith">
+
+            <div class="info">
+
+                <h3>Star Wars: Revenge of the Sith</h3>
+
+                <p>
+                    peak villian origin story. 
+                </p>
+
+                <div class="watch">
+
+                    <h4>TRAILER</h4>
+
+                    <iframe
+                        class="trailer"
+                        src="https://www.youtube.com/embed/5UnjrG_N8hU"
+                        allowfullscreen>
+                    </iframe>
+
+                    <h4>WHERE TO WATCH</h4>
+
+                    <a href="https://www.disneyplus.com/">
+                        <button>DISNEY+ →</button>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+    <h2>MUSIC</h2>
+
+
+    <div class="music">
+
+        <img
+            src="https://chordulele.com/ukulele-chords-by-artist/nf/img.jpg"
+            class="musicpic"
+            alt="NF">
+
+        <div>
+
+            <h3>NF</h3>
+
+            <p>
+                well yeah an intj liking the most intj intj shoker 
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="music">
+
+        <img
+            src="https://resources.tidal.com/images/8d0a7719/a1d2/465f/90e2/4fe75e847dff/750x750.jpg"
+            class="musicpic"
+            alt="John Michael Howell">
+
+        <div>
+
+            <h3>John Michael Howell</h3>
+
+            <p>
+                so smart writing
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="music">
+
+        <img
+            src="https://s2.dmcdn.net/v/VLBv91cWjkMNXuEFY/x1080"
+            class="musicpic"
+            alt="BoyWithUke">
+
+        <div>
+
+            <h3>BoyWithUke</h3>
+
+            <p>
+                Ukulele plus questionable emotional stability.
+                Somehow it works.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="music">
+
+        <img
+            src="https://res.cloudinary.com/hits-photos-archive/image/upload/v1738635607/legacy-migration/legacy-hitsdd_photo_gal__photo_1117301662.jpg"
+            class="musicpic"
+            alt="JVKE">
+
+        <div>
+
+            <h3>JVKE</h3>
+
+            <p>
+                ok yeah i like his song and it makes me look soft which is why i never tell it to anyone
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="music">
+
+        <img
+            src="https://maxnoje.se/artister_konsert/bruno_mars/bruno_mars.jpg"
+            class="musicpic"
+            alt="Bruno Mars">
+
+        <div>
+
+            <h3>Bruno Mars</h3>
+
+            <p>
+                so yeah i atleast need someone which makes me look like i am from my generation and can fit in
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="bottom">
+
+        <a href="about.html">
+            <button>← BACK TO HUMAN DATA</button>
+        </a>
+
+        <a href="projects.html">
+            <button>PROJECTS →</button>
+        </a>
+
+    </div>
+
+
+</body>
+
+</html>

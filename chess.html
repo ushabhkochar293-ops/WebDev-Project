@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Chess</title>
+<style>
+body{margin:0;background:#222;height:100vh;display:flex;align-items:center;justify-content:center}
+
+.board{
+width:100vw;height:100vh;
+display:grid;
+grid-template-columns:repeat(8,1fr);
+grid-template-rows:repeat(8,1fr)
+}
+
+.x{
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:9vh
+}
+
+.a{background:#8b5a2b}
+.c{background:#6b8e23}
+.b{color:black}
+.w{color:white}
+</style>
+</head>
+
+<body>
+<div class="board">
+
+<div class="x a b">♜</div><div class="x c b">♞</div><div class="x a b">♝</div><div class="x c b">♛</div>
+<div class="x a b">♚</div><div class="x c b">♝</div><div class="x a b">♞</div><div class="x c b">♜</div>
+
+<div class="x c b">♟</div><div class="x a b">♟</div><div class="x c b">♟</div><div class="x a b">♟</div>
+<div class="x c b">♟</div><div class="x a b">♟</div><div class="x c b">♟</div><div class="x a b">♟</div>
+
+<div class="x a"></div><div class="x c"></div><div class="x a"></div><div class="x c"></div>
+<div class="x a"></div><div class="x c"></div><div class="x a"></div><div class="x c"></div>
+
+<div class="x c"></div><div class="x a"></div><div class="x c"></div><div class="x a"></div>
+<div class="x c"></div><div class="x a"></div><div class="x c"></div><div class="x a"></div>
+
+<div class="x a"></div><div class="x c"></div><div class="x a"></div><div class="x c"></div>
+<div class="x a"></div><div class="x c"></div><div class="x a"></div><div class="x c"></div>
+
+<div class="x c"></div><div class="x a"></div><div class="x c"></div><div class="x a"></div>
+<div class="x c"></div><div class="x a"></div><div class="x c"></div><div class="x a"></div>
+
+<div class="x a w">♟</div><div class="x c w">♟</div><div class="x a w">♟</div><div class="x c w">♟</div>
+<div class="x a w">♟</div><div class="x c w">♟</div><div class="x a w">♟</div><div class="x c w">♟</div>
+
+<div class="x c w">♜</div><div class="x a w">♞</div><div class="x c w">♝</div><div class="x a w">♛</div>
+<div class="x c w">♚</div><div class="x a w">♝</div><div class="x c w">♞</div><div class="x a w">♜</div>
+
+</div>
+</body>
+</html>
